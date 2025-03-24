@@ -13,11 +13,25 @@
 
 	<build>
 		<finalName>GrainBankApp</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.7.v20170914</version>
+				<configuration>
+					<contextPath>/</contextPath>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<httpConnector>
+						<port>9091</port>
+					</httpConnector>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 	<properties>
-		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -40,7 +54,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<reporting>
@@ -68,21 +81,6 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.1.1</version>
 			</plugin>
-
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.7.v20170914</version>
-				<configuration>
-					<contextPath>/</contextPath>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
-					<httpConnector>
-						<port>9091</port>
-					</httpConnector>
-				</configuration>
-			</plugin>
-
-
 		</plugins>
 	</reporting>
 
